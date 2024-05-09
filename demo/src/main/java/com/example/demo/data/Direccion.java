@@ -33,9 +33,6 @@ public class Direccion {
 	 @Column (name="COUNTRY_ID")
 	 private String idPais;
 	 
-	 @OneToMany(mappedBy = "direccion")
-	 private List<Departamento> departamentos;
-	 
 	 public Direccion() {
 		 super();
 	 }
@@ -87,14 +84,7 @@ public class Direccion {
 	public void setIdPais(String idPais) {
 		this.idPais = idPais;
 	}
-
-	public List<Departamento> getDepartamentos() {
-		return departamentos;
-	}
-
-	public void setDepartamentos(List<Departamento> departamentos) {
-		this.departamentos = departamentos;
-	}
+	
 
 	@Override
 	public String toString() {
