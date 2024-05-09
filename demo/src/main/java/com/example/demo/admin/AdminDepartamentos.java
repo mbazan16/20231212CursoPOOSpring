@@ -35,7 +35,7 @@ public class AdminDepartamentos implements IAdminDepartamentos{
 			//La propia logica de negocio
 			nombreDepartamento = nombreDepartamento.trim().toUpperCase();
 			departamentos = repository.findByNameLike(nombreDepartamento);
-			departamentos.forEach(d -> log.debug(d.toString()));
+			
 		}catch(AdminException ae) {
 			log.error("AdminException", ae);
 			throw ae;
