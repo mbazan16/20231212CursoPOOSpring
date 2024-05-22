@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Departamento</title>
+</head>
+<body>
+<h2>Departamento</h2>
+
+<div id="detalle">
+
+
+ 	<p th:text="${dep.nombre}"></p>
+ 	<p>Dirección</p>
+ 	<p th:text="${dep.direccion.calle}"></p>
+ 	<p th:text="${dep.direccion.ciudad}"></p>
+ 	<p th:text="${dep.direccion.codigoPostal}"></p>
+ 
+</div>
+<h2>Modificar Departamento</h2>
+<div id="formModificar">
+<form action="#" th:action="@{/buscador}" th:object="${dep}" method="post">
+    	<p>Id: <input type="text" th:field="*{id}" /></p>
+        <p>Nombre: <input type="text" th:field="*{nombre}" /></p>
+        <p>Jefe del departamento: <input type="text" th:field="*{idGerente}" readonly/></p>
+        <p>Direccion:        
+        <select id="direccion" name="direccion">
+            <option th:each="direccion : ${listaDirecciones}" th:value="${direccion.id}" th:text="${direccion.ciudad}"
+            th:selected="${direccion.id == dep.direccion.id}">Direccion</option>
+        </select></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</div>
+</body>
+</html>
