@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Departamentos</title>
+</head>
+<body>
+<h2>Departamentos</h2>
+<div id="buscador">
+<form th:action="@{/buscador}" >
+ <input type="text" name="cadena" /><button type="submit">Buscar</button>
+ 
+</form>
+</div>
+<div id="listado">
+<ul>
+<li th:each="dep:${listaDepartamentos}">
+ 	<span th:text="${dep.nombre}"></span>
+ 	<span th:text="${dep.direccion.ciudad}"></span>
+    <a  th:href="@{'/departamento/'+${dep.id}}"><img src="https://img.icons8.com/material-sharp/24/null/zoom-in--v1.png" /></a>
+ </li>
+</ul>
+</div>
+<h2>Crear Departamento</h2>
+<div id="formCrear">
+<form action="#" th:action="@{/departamento}"  method="post">
+    	<p>Id: <input type="text" name="id" /></p>
+        <p>Nombre: <input type="text" name="nombre" /></p>
+        <p>Jefe del departamento: <input type="text" name="idGerente" value="100" readonly/></p>
+        <p>Direccion:        
+        <select id="direccion" name="direccion">
+            <option th:each="direccion : ${listaDirecciones}" th:value="${direccion.id}" th:text="${direccion.ciudad}">Direccion</option>
+        </select></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</div>
+ <div th:insert="~{secciones/fragmentos :: pie}"></div>
+</body>
+</html>
