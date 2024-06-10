@@ -32,9 +32,14 @@ public class BuscadorDepartamentoController {
 		log.debug("[cadena:"+cadena+"]");			
 		List<Departamento> departamentos= servicio.buscador(cadena);
 		List<Direccion> direcciones= servicio.listaDirecciones();
+		Departamento departamento = new Departamento();
+		departamento.setId(100);
+		departamento.setNombre("Alguno");	
 		
+		departamentos.add(departamento);
 		model.addAttribute("listaDepartamentos", departamentos);
-		model.addAttribute("listaDirecciones", direcciones);		
+		model.addAttribute("listaDirecciones", direcciones);	
+		model.addAttribute("cadena", "hola mundo");	
 		
 		return "t_inicio";
 	}

@@ -1,17 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="jakarta.tags.core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Saludo</title>
+<title>Buscador</title>
 </head>
 <body>
-Prueba
+
 <c:forEach items="${listaDepartamentos}" var="dep">
  <p>${dep.id}-${dep.nombre}</p>
 </c:forEach>
-Fin del for
+
 </body>
 </html>
