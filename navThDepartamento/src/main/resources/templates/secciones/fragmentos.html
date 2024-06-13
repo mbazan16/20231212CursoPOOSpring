@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <body>
+  
+    <div th:fragment="pie">
+      &copy; 2011 The Good Thymes Virtual Grocery      
+    </div>
+    
+    <div th:fragment="listaDirecciones">
+       <ul>
+        <li th:each="direccion:${listaDirecciones}">
+ 		<span th:text="${direccion.ciudad}"></span> 	
+ 		</li>
+      </ul>
+    </div>
+  
+  </body>
+  
+</html>

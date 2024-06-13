@@ -15,3 +15,6 @@ INSERT INTO LOCATIONS (location_id, street_address, postal_code, city, state_pro
 (3202, '789 Pine St', '54321', 'Capital City', 'CA', 'US'),
 (3203, '101 Maple Ave', '98765', 'Ogdenville', 'NV', 'US'),
 (3204, '202 Birch Blvd', '11223', 'North Haverbrook', 'TX', 'US');
+
+INSERT INTO DEPARTMENTS(DEPARTMENT_ID,DEPARTMENT_NAME,IDGERENTE,LOCATION_ID) VALUES
+(10,'DEVELOPMENT',100,3200);

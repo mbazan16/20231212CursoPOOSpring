@@ -29,7 +29,9 @@ public class BuscadorDepartamentoController {
 	@GetMapping
 	public String buscador(Model model,@RequestParam(required = false) String cadena) throws AdminException{
 		log.info("[buscador]");
-		log.debug("[cadena:"+cadena+"]");			
+		log.debug("[cadena:"+cadena+"]");
+		if(cadena.isEmpty())
+			throw new AdminException();
 		List<Departamento> departamentos= servicio.buscador(cadena);
 		List<Direccion> direcciones= servicio.listaDirecciones();
 		
