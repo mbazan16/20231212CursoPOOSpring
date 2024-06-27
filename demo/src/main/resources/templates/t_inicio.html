@@ -8,7 +8,7 @@
 <h2>Departamentos</h2>
 <div>
 <ul>
-<li th:each="dep:${departamentos}">
+<li th:each="dep:${listaDepartamentos}">
  	<span th:text="${dep.nombre}"></span>
     <a  th:href="@{'/departamento/'+${dep.id}}"><img src="https://img.icons8.com/material-sharp/24/null/zoom-in--v1.png" /></a>
  </li>

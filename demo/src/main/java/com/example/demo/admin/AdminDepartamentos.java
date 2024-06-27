@@ -29,16 +29,13 @@ public class AdminDepartamentos implements IAdminDepartamentos{
 		
 		List<Departamento> departamentos = new ArrayList<Departamento>();
 		try {
-			//Validacion de parametros
-			if(nombreDepartamento == null || nombreDepartamento.trim().isEmpty())
-				throw new NombreDepartamentoInvalidoException();
+			
+			if(nombreDepartamento == null) nombreDepartamento ="";			
+				
 			//La propia logica de negocio
 			nombreDepartamento = nombreDepartamento.trim().toUpperCase();
 			departamentos = repository.findByNameLike(nombreDepartamento);
-			
-		}catch(AdminException ae) {
-			log.error("AdminException", ae);
-			throw ae;
+			departamentos.forEach(s -> log.debug(s.toString()));
 		} catch (Exception e) {
 			log.error("Exception", e);
 			throw new AdminException();

@@ -1,5 +1,6 @@
 package com.example.demo.controllers.admin;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -16,7 +17,7 @@ import com.example.demo.admin.exception.AdminException;
 import com.example.demo.data.Departamento;
 
 @Controller
-@RequestMapping("/buscador")
+@RequestMapping(value={"/","/buscador"})
 public class BuscadorDepartamentoController {
 	public static final Logger log = LoggerFactory.getLogger(BuscadorDepartamentoController.class);
 	
@@ -24,9 +25,9 @@ public class BuscadorDepartamentoController {
 	IAdminDepartamentos servicio;
 	
 	@GetMapping
-	public String buscador(Model model,@RequestParam("cadena") String cadena) throws AdminException{
+	public String buscador(Model model,@RequestParam(required = false) String cadena) throws AdminException{
 		log.info("[buscador]");
-		log.debug("[cadena:"+cadena+"]");
+		log.debug("[cadena:"+cadena+"]");		
 		List<Departamento> departamentos= servicio.buscador(cadena);	
 		model.addAttribute("listaDepartamentos", departamentos);
 		return "t_inicio";
